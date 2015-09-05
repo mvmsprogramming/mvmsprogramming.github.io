@@ -19,25 +19,25 @@ header {
   line-height: 100px;
   position: absolute;
 }
-a.nav {
+nav ul a {
   cursor: pointer;
   font-size: .9em;
   width: 90px;
 }
-a#navbutton {
+a.navbutton {
   width: 0;
   height: 0;
 }
-#navlist {
+nav ul {
   list-style-type: none;
   padding-left: 10px;
   margin: 0;
-  padding-top:50px;
+  padding-top:10px;
+  padding-bottom: 10px;
   background: #333;
   width: 100px;
-  padding-top: 0px;
   width: 90px;
-  height: 0;
+  display:none;
 }
 
 li {
