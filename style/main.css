@@ -7,7 +7,7 @@ body {
   background: #F5EACD;
 }
 header {
-  background-color: #75A3D1;
+  background: #75A3D1;
   height: 100px;
   padding: 25px;
 }
@@ -27,16 +27,19 @@ a.nav {
 a#navbutton {
   width: 0;
   height: 0;
-  z-index: 20;
 }
 #navlist {
   list-style-type: none;
   padding-left: 10px;
   margin: 0;
   padding-top:50px;
-  background: #EE4B3E;
+  background: #333;
   width: 100px;
   padding-top: 0px;
-  z-index: 10;
   width: 90px;
+  height: 0;
+}
+
+li {
+    color: #F5EACD;
 }
