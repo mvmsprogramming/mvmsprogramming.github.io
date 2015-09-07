@@ -13,7 +13,6 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
         'hue-2': '700',
         'hue-3': 'A100'
       });
-
   })
   .controller('pcController', function($scope, $http) {
     $http.get('https://www.googleapis.com/calendar/v3/calendars/3hjfsttq8ceskr9l5s8omgt2o0%40group.calendar.google.com/events/4n7sslhfu87jo4lm3mfa6d2jlo/instances?maxResults=1&fields=items(start)&singleEvents=true&key=AIzaSyCmqAoSy-W7dKQgDtmwLZW6l0kz0KPoJdw')
@@ -38,11 +37,11 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
       }
       $scope.daysUntil = Date.daysBetween(currentDate, nextMeetDate);
     })
-    $scope.instructors1 = [
+    $scope.instructors = [
       {
         name: 'Ronak Shah',
         title: 'Head',
-        description: 'Currently a 10th grader at Westview High School, Ronak is the founder and head of MVMS Programming Club. Ronak is a passionate programmer who codes in Java, C++, HTML, CSS, and Javascript. You can contact Ronak at ronakshahultimate@gmail.com',
+        description: 'Currently a 10th grader at Westview High School, Ronak is the founder and head of MVMS Programming Club. Ronak is a passionate programmer who codes in Java, C++, Swift, HTML, CSS, and Javascript. You can contact Ronak at ronak.manish.shah@gmail.com',
         pic: 'res/images/horse_head.jpg'
       },
       {
@@ -56,9 +55,7 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
         title: 'President',
         description: 'Currently an 8th grader at Mesa Verde Middle School, Michael is a great programmer teaching mostly HTML and CSS. Along with being an amazing programmer, Michael is very mature and has great leadership, and consequently he is currently the head of management as well as being an instructor. You can contact Michael at Michael.jlabarbera@gmail.com',
         pic: 'res/images/horse_head.jpg'
-      }
-    ]
-    $scope.instructors2 = [
+      },
       {
         name: 'Evan Thurston',
         title: 'Instructor',
@@ -70,6 +67,20 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
         title: 'Instructor',
         description: "Currently an 8th grader at Mesa Verde Middle School, Assafi works hard at what he does. Boasting skills in Javascript, Assafi can write powerful programs in minutes. You can contact Assafi somewhere I don't know because he is a scrub",
         pic: 'res/images/horse_head.jpg'
+      }
+    ]
+    $scope.resources = [
+      {
+        name: 'Codecademy',
+        link: 'https://www.codecademy.com/learn',
+        description: "A wonderful learning site, Codecademy gives you all the resources you need to do some really cool things. If you want to start learning a new language, Codecademy is a great place to start if they have your language",
+        pic: 'res/images/codecademyLogo.png'
+      },
+      {
+        name: 'JsFiddle',
+        link: 'http://jsfiddle.net/',
+        description: "JsFiddle is an online IDE that supports HTML, CSS, Javascript, and many plugins for those languages. We often use JsFiddle in class because of it's simplicity",
+        pic: 'res/images/jsfiddleLogo.png'
       }
     ];
   });

@@ -26,6 +26,7 @@
             <p class='md-display-1'>MVMS Programming Club</p>
             <p class='md-subhead'>Where middle school students learn to program.</p>
           </div>
+          <div flex='5'></div>
         </div>
       </md-toolbar>
       <!-- end toolbar -->
@@ -43,13 +44,13 @@
         <!-- days until next meeting -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Programming club is in </h5>
-          <div class='md-whiteframe-z2 bg-teal-hue1'><h4 class='md-display-1'>{{ daysUntil }}</h4></div>
+          <md-button class='md-whiteframe-z2 bg-teal-hue1 md-raised' md-no-ink='true'><p class='md-display-1'>{{ daysUntil }}</p></md-button>
           <h5 class='md-headline'>Days</h5>
         </div>
         <!-- next meeting day -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Next meeting:</h5>
-          <div class='md-whiteframe-z2 bg-teal-hue1'><h4 class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</h4></div>
+          <md-button class='md-whiteframe-z2 bg-teal-hue1 md-raised' md-no-ink='true'><p class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
           <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
         </div>
       </div>
@@ -64,48 +65,50 @@
         </div>
       </div>
       <!-- end instructors title -->
-      <!-- start instructor cards row 1 -->
-      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;'>
-        <md-card ng-repeat='instructor in instructors1' class='bg-teal-def md-whiteframe-z1' flex='33' flex-sm='100' flex-md='33'>
-          <div class='bg-teal-hue2 md-whiteframe-z2'>
-            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+      <!-- start instructor cards-->
+      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
+        <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
+          <div class='bg-teal-hue1 md-whiteframe-z2'>
+            <md-button class='md-raised' md-no-ink='true'>
+              <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+            </md-button>
           </div>
           <md-card-content>
             <h2 class='md-headline'>{{ instructor.name }}</h2>
-            <div class='bg-teal-hue1 md-whiteframe-z2'>
-              <p class='md-title'>{{ instructor.title | uppercase }}</p>
-            </div>
+            <md-button class='md-raised' md-no-ink='true'>{{ instructor.title }}</md-button>
             <p class='md-subhead'>{{ instructor.description }}</p>
           </md-card-content>
         </md-card>
       </div>
-      <!-- end instructor card row 1 -->
-      <!-- start instructor card row 2 -->
-      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;'>
-        <md-card ng-repeat='instructor in instructors2' class='bg-teal-def md-whiteframe-z1' flex='33' flex-sm='100' flex-md='33'>
-          <div  class='bg-teal-hue2 md-whiteframe-z2'>
-            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
-          </div>
-          <md-card-content>
-            <h2 class='md-headline'>{{ instructor.name }}</h2>
-            <div class='bg-teal-hue1 md-whiteframe-z2'>
-              <p class='md-title'>{{ instructor.title | uppercase }}</p>
-            </div>
-            <p class='md-subhead'>{{ instructor.description }}</p>
-          </md-card-content>
-        </md-card>
-      </div>
-      <!-- end instructor card row 2 -->
+      <!-- end instructor cards -->
       <md-divider></md-divider>
       <!-- start resources title -->
       <div layout='row'>
         <div flex='5'></div>
         <div>
           <h6 class='md-title col-red-def'>Resources</h6>
-          <p class='md-subhead'>Want to know how to do x or want to use a program we used in class?</p>
+          <p class='md-subhead'>Want to know how to do something or want to use a program we used in class?</p>
         </div>
       </div>
       <!-- end resources title -->
+      <!-- start resources content -->
+      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
+        <md-card ng-repeat='resource in resources' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
+          <div class='bg-teal-hue1 md-whiteframe-z2'>
+            <md-button class='md-raised' ng-href='{{ resource.link }}'>
+              <img class='md-card-image' ng-src='{{ resource.pic }}'>
+            </md-button>
+          </div>
+          <md-card-content>
+            <h2 class='md-headline'><md-button ng-href='{{ resource.link }}' class='md-raised'>{{ resource.name }}</md-button></h2>
+            <div class='bg-teal-hue1 md-whiteframe-z2'>
+              <p class='md-title'>{{ resource.title | uppercase }}</p>
+            </div>
+            <p class='md-subhead'>{{ resource.description }}</p>
+          </md-card-content>
+        </md-card>
+      </div>
+      <!-- end resources content -->
       <md-divider></md-divider>
       <!-- start contact title -->
       <div layout='row'>
@@ -134,12 +137,11 @@
             We are a non-profit club located in San Diego, California. We are specificaly located in Mesa Verde Middle School. We love programming, and want to share our love with others. We try to convey our passion and help others understand that passion. We teach a variety of languages, in order to help others understand the freedom and power you have while programming. We not only teach students how to simply code, we teach our students problem-solving skills, memorization, creativity, and how to have fun with something seemingly monotonous.
           </p>
         </div>
+        <div flex='5'></div>
       </div>
       <!-- end about content -->
     </md-content>
     <!-- modules -->
     <script src="js/app.js"></script>
-    <!-- directives -->
-    <script src='directives/instructorCard.js'></script>
   </body>
 </html>

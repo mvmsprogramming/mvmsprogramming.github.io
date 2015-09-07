@@ -9,6 +9,15 @@
 .bg-teal-hue1 {
   background: #4DB6AC;
 }
+.bg-whi-def {
+  background: #FFFFFF;
+}
 .col-red-def {
   color: #F44336;
+}
+.col-whi-def {
+  color: #FFFFFF
+}
+a {
+  text-decoration: none;
 }
