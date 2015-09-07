@@ -4,6 +4,7 @@
     <title>MVMS|PC</title>
     <link rel="icon" type="image/png" href="res/images/favicon.png">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" type="text/css" href=""
     <!-- <link rel="stylesheet" type="text/css" href=css/main.css> -->
     <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css"> -->
     <script src='./bower_components/angular/angular.min.js'></script>
@@ -42,5 +43,30 @@
         </div>
       </div>
     </md-content>
+    <!-- editor code -->
+    <div id="pcEditor">
+		<div id="runBar">
+			<div id="topColors">
+				<div id="topBlack" class="color"></div>
+				<div id="topBlue" class="color"></div>
+				<div id="topGreen" class="color"></div>
+				<div id="topRed" class="color"></div>
+				<div id="topOrange" class="color"></div>
+				<div id="topPurple" class="color"></div>
+			</div>
+			<div id="runButton">Run Code</div>
+			<div id="minimizeButton">{-}</div>
+		</div>
+		<div id="leftEditor">
+			<textarea id="editText" placeholder="html..."></textarea>
+		</div>
+		<div id="rightDisplay">
+			<iframe id="display">
+				
+			</iframe>
+		</div>
+	</div>
+	<div id="minimizedEditor">Expand {+} Editor</div>
+	<!-- end of editor code -->
   </body>
 </html>
