@@ -10,7 +10,6 @@
     <script src='./bower_components/angular-aria/angular-aria.min.js'></script>
     <script src='./bower_components/angular-material/angular-material.min.js'></script>
     <script src='./bower_components/jquery/dist/jquery.min.js'></script>
-    <!-- <script src="js/controllers/MainController.js"></script> -->
 
     </script>
     <meta charset="UTF-8">
@@ -26,29 +25,27 @@
           </div>
         </div>
       </md-toolbar>
-      <div>
         <div layout='row'>
           <div flex='5'></div>
           <div>
-            <h6 class='md-title col-teal-def'>Schedule</h6>
-            <p class='md-subhead center'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom at Mesa Verde Middle School.</p>
+            <h6 class='md-title col-red-def'>Schedule</h6>
+            <p class='md-subhead'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom at Mesa Verde Middle School.</p>
           </div>
         </div>
-        <div layout="row" layout-sm='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
+        <div layout="row" layout-sm='column' layout-md='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
           <!-- daysUntil -->
-          <div flex='33' flex-sm='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+          <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
             <h5 class='md-headline'>Programming club is in </h5>
             <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>7</h4></div>
             <h5 class='md-headline'>Days</h5>
           </div>
           <!-- nextMeet -->
-          <div flex='33' flex-sm='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+          <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
             <h5 class='md-headline'>Next meeting:</h5>
             <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ nextMeeting.items[0].start.dateTime | date: 'MMMM d, yyyy' }}</h4></div>
             <h5 class='md-headline'>{{ nextMeeting.items[0].start.dateTime | date: 'h:mm a' }}</h5>
           </div>
         </div>
-      </div>
     </md-content>
     <script src="js/app.js"></script>
   </body>
