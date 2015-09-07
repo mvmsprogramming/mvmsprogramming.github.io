@@ -3,8 +3,10 @@
   <head>
     <title>MVMS|PC</title>
     <link rel="icon" type="image/png" href="res/images/favicon.png">
-    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
+    <!-- local stylesheet -->
     <link rel='stylesheet' href='css/main.css'/>
+    <!-- external imports -->
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
     <script src='./bower_components/angular/angular.min.js'></script>
     <script src='./bower_components/angular-animate/angular-animate.min.js'></script>
     <script src='./bower_components/angular-aria/angular-aria.min.js'></script>
@@ -15,7 +17,8 @@
     <meta charset="UTF-8">
   </head>
   <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column'>
-    <md-content>
+    <md-content class='md-padding'>
+      <!-- start toolbar -->
       <md-toolbar md-scroll-shrink='true' class='md-whiteframe-z1' flex='25' flex-sm='50'>
         <div layout='row'>
           <div flex='5'></div>
@@ -25,28 +28,118 @@
           </div>
         </div>
       </md-toolbar>
-        <div layout='row'>
-          <div flex='5'></div>
-          <div>
-            <h6 class='md-title col-red-def'>Schedule</h6>
-            <p class='md-subhead'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom at Mesa Verde Middle School.</p>
-          </div>
+      <!-- end toolbar -->
+      <!-- start schedule title -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <h6 class='md-title col-red-def'>Schedule</h6>
+          <p class='md-subhead'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom at Mesa Verde Middle School.</p>
         </div>
-        <div layout="row" layout-sm='column' layout-md='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
-          <!-- daysUntil -->
-          <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
-            <h5 class='md-headline'>Programming club is in </h5>
-            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ daysUntil }}</h4></div>
-            <h5 class='md-headline'>Days</h5>
-          </div>
-          <!-- nextMeet -->
-          <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
-            <h5 class='md-headline'>Next meeting:</h5>
-            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</h4></div>
-            <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
-          </div>
+      </div>
+      <!-- end schedule title -->
+      <!-- start schedule section -->
+      <div layout="row" layout-sm='column' layout-md='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
+        <!-- days until next meeting -->
+        <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+          <h5 class='md-headline'>Programming club is in </h5>
+          <div class='md-whiteframe-z2 bg-teal-hue1'><h4 class='md-display-1'>{{ daysUntil }}</h4></div>
+          <h5 class='md-headline'>Days</h5>
         </div>
+        <!-- next meeting day -->
+        <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+          <h5 class='md-headline'>Next meeting:</h5>
+          <div class='md-whiteframe-z2 bg-teal-hue1'><h4 class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</h4></div>
+          <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
+        </div>
+      </div>
+      <!-- end schedule section -->
+      <md-divider></md-divider>
+      <!-- start instructors title -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <h6 class='md-title col-red-def'>Instructors</h6>
+          <p class='md-subhead'>We have a carefully handpicked selection of the best programmers that regularly come to the club.</p>
+        </div>
+      </div>
+      <!-- end instructors title -->
+      <!-- start instructor cards row 1 -->
+      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;'>
+        <md-card ng-repeat='instructor in instructors1' class='bg-teal-def md-whiteframe-z1' flex='33' flex-sm='100' flex-md='33'>
+          <div class='bg-teal-hue2 md-whiteframe-z2'>
+            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+          </div>
+          <md-card-content>
+            <h2 class='md-headline'>{{ instructor.name }}</h2>
+            <div class='bg-teal-hue1 md-whiteframe-z2'>
+              <p class='md-title'>{{ instructor.title | uppercase }}</p>
+            </div>
+            <p class='md-subhead'>{{ instructor.description }}</p>
+          </md-card-content>
+        </md-card>
+      </div>
+      <!-- end instructor card row 1 -->
+      <!-- start instructor card row 2 -->
+      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;'>
+        <md-card ng-repeat='instructor in instructors2' class='bg-teal-def md-whiteframe-z1' flex='33' flex-sm='100' flex-md='33'>
+          <div  class='bg-teal-hue2 md-whiteframe-z2'>
+            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+          </div>
+          <md-card-content>
+            <h2 class='md-headline'>{{ instructor.name }}</h2>
+            <div class='bg-teal-hue1 md-whiteframe-z2'>
+              <p class='md-title'>{{ instructor.title | uppercase }}</p>
+            </div>
+            <p class='md-subhead'>{{ instructor.description }}</p>
+          </md-card-content>
+        </md-card>
+      </div>
+      <!-- end instructor card row 2 -->
+      <md-divider></md-divider>
+      <!-- start resources title -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <h6 class='md-title col-red-def'>Resources</h6>
+          <p class='md-subhead'>Want to know how to do x or want to use a program we used in class?</p>
+        </div>
+      </div>
+      <!-- end resources title -->
+      <md-divider></md-divider>
+      <!-- start contact title -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <h6 class='md-title col-red-def'>Contact</h6>
+          <p class='md-subhead'>Come on in, let's have a chat.</p>
+        </div>
+      </div>
+      <!-- end contact title -->
+      <md-divider></md-divider>
+      <!-- start about title -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <h6 class='md-title col-red-def'>About</h6>
+          <p class='md-subhead'>What are we?</p>
+        </div>
+      </div>
+      <!-- end about title -->
+      <!-- start about content -->
+      <div layout='row'>
+        <div flex='5'></div>
+        <div class='bg-teal-def md-whiteframe-z1' layout-padding>
+          <p class='md-headline' style='text-align: center;'>
+            We are a non-profit club located in San Diego, California. We are specificaly located in Mesa Verde Middle School. We love programming, and want to share our love with others. We try to convey our passion and help others understand that passion. We teach a variety of languages, in order to help others understand the freedom and power you have while programming. We not only teach students how to simply code, we teach our students problem-solving skills, memorization, creativity, and how to have fun with something seemingly monotonous.
+          </p>
+        </div>
+      </div>
+      <!-- end about content -->
     </md-content>
+    <!-- modules -->
     <script src="js/app.js"></script>
+    <!-- directives -->
+    <script src='directives/instructorCard.js'></script>
   </body>
 </html>
