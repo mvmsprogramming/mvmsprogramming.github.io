@@ -18,17 +18,12 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
   .controller('pcController', function($scope, $http) {
     $http.get('https://www.googleapis.com/calendar/v3/calendars/3hjfsttq8ceskr9l5s8omgt2o0%40group.calendar.google.com/events/4n7sslhfu87jo4lm3mfa6d2jlo/instances?maxResults=1&fields=items(start)&singleEvents=true&key=AIzaSyCmqAoSy-W7dKQgDtmwLZW6l0kz0KPoJdw')
     .success(function(response){
-      var nextDateOrig = response.items[0].start.dateTime;
-      var nextDateP1 = nextDateOrig.substring(0, 8);
-      var nextDateP2 = (nextDateOrig.substring(8, 10)) - 7;
-      var nextDateP3 = nextDateOrig.substring(10, 25);
-      $scope.nextMeeting = nextDateP1 + nextDateP2 + nextDateP3;
+      $scope.nextMeeting = response.items[0].start.dateTime;
       var nextMeetDateString = response.items[0].start.dateTime;
       var yr = nextMeetDateString.substring(0, 4);
       var mon = nextMeetDateString.substring(5, 7);
       var mo = mon - 1;
-      var day = nextMeetDateString.substring(8, 10);
-      var da = day - 7;
+      var da = nextMeetDateString.substring(8, 10);
       var mi = nextMeetDateString.substring(11, 13);
       var se = nextMeetDateString.substring(14, 16);
       var ms = nextMeetDateString.substring(17, 19);
