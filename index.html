@@ -36,14 +36,14 @@
           <!-- daysUntil -->
           <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
             <h5 class='md-headline'>Programming club is in </h5>
-            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>7</h4></div>
+            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ daysUntil }}</h4></div>
             <h5 class='md-headline'>Days</h5>
           </div>
           <!-- nextMeet -->
           <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
             <h5 class='md-headline'>Next meeting:</h5>
-            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ nextMeeting.items[0].start.dateTime | date: 'MMMM d, yyyy' }}</h4></div>
-            <h5 class='md-headline'>{{ nextMeeting.items[0].start.dateTime | date: 'h:mm a' }}</h5>
+            <div class='md-whiteframe-z2 bg-teal-hue2'><h4 class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</h4></div>
+            <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
           </div>
         </div>
     </md-content>
