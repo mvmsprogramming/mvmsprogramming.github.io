@@ -1,3 +1,9 @@
+document.body.onload = function(){
+	if(localStorage.getItem("htmlcode") != null){
+		textEditor.value = localStorage.getItem("htmlcode");
+	}
+}
+
 var textEditor = document.getElementById("editText");
 	textEditor.onkeydown = function(e){
 		if(e.keyCode == 9){
@@ -10,37 +16,47 @@ var textEditor = document.getElementById("editText");
 
 var textClr = "";
 
-var colors = document.getElementsByClassName("color");
-	for(var i = 0;i < colors.length; i++){
-		colors[i].onclick = function(){
-				if(this.id == "topBlack") { textClr = "#404040"; }
-				if(this.id == "topBlue") { textClr = "#75a3d1"; }
-				if(this.id == "topGreen") { textClr = "#58d178"; }
-				if(this.id == "topRed") { textClr = "#ee4b3e"; }
-				if(this.id == "topOrange") { textClr = "#f59c62"; }
-				if(this.id == "topPurple") { textClr = "#8065b3"; }
-				console.log(textClr);
-				textEditor.style.color = textClr;
-				textEditor.focus();
-		}
-	}
-	
 var display = document.getElementById("display");
 var runButton = document.getElementById("runButton");
 	runButton.onclick = function(){
 		display.srcdoc = textEditor.value;
+		localStorage.setItem("htmlcode", textEditor.value);
 	};
 	
 var pcEditor = document.getElementById("pcEditor");	
 
+var opacityUp = 1;
+var opacityDown = 0;
+
 var minimizer = document.getElementById("minimizeButton");
 	minimizer.onclick = function(){
-		pcEditor.style.display = "none";
-		expander.style.display = "block";
-		console.log("minimize");
+		var mini = setInterval(function(){
+			opacityUp -= .02;
+			pcEditor.style.opacity = opacityUp;
+			if(opacityUp <= 0) {
+				pcEditor.style.opaciy = 0;
+				pcEditor.style.display = "none";
+			    expander.style.display = "block";
+			    opacityUp = 1;
+			    clearInterval(mini);
+			}
+		}, 15);
 	};
+	
 var expander = document.getElementById("minimizedEditor");
+
 	expander.onclick = function(){
+		var bigi = setInterval(function(){
+			opacityDown += .02;
+			pcEditor.style.opacity = opacityDown;
+			if(opacityDown >= 1){
+				pcEditor.style.opacity = 1;
+				pcEditor.style.display = "block";
+				expander.style.display = "none";
+				opacityDown = 0;
+				clearInterval(bigi);
+			}
+		}, 15);
 		pcEditor.style.display = "block";
 		expander.style.display = "none";
 	};
