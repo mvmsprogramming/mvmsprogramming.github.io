@@ -21,3 +21,7 @@
 a {
   text-decoration: none;
 }
+.inspir-bg {
+  background-image: url(../res/images/PC_IRL.png) !important;
+  background-position: right top;
+}

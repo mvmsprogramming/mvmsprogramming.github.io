@@ -16,20 +16,20 @@
     </script>
     <meta charset="UTF-8">
   </head>
-  <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column'>
-    <md-content class='md-padding'>
-      <!-- start toolbar -->
-      <md-toolbar md-scroll-shrink='true' class='md-whiteframe-z1' flex='25' flex-sm='50'>
-        <div layout='row'>
-          <div flex='5'></div>
-          <div>
-            <p class='md-display-1'>MVMS Programming Club</p>
-            <p class='md-subhead'>Where middle school students learn to program.</p>
-          </div>
-          <div flex='5'></div>
+  <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column' ng-cloak>
+    <!-- start toolbar -->
+    <md-toolbar md-scroll-shrink='true' md-shrink-speed-factor='0.5' class='md-whiteframe-z3 inspir-bg' flex='33' flex-sm='33'>
+      <div layout='row'>
+        <div flex='5'></div>
+        <div>
+          <p class='md-display-3'>MVMS Programming Club</p>
+          <p class='md-headline'>Where middle school students learn to program.</p>
         </div>
-      </md-toolbar>
-      <!-- end toolbar -->
+        <div flex='5'></div>
+      </div>
+    </md-toolbar>
+    <!-- end toolbar -->
+    <md-content class='md-padding'>
       <!-- start schedule title -->
       <div layout='row'>
         <div flex='5'></div>
@@ -44,13 +44,13 @@
         <!-- days until next meeting -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Programming club is in </h5>
-          <md-button class='md-whiteframe-z2 bg-teal-hue1 md-raised' md-no-ink='true'><p class='md-display-1'>{{ daysUntil }}</p></md-button>
+          <md-button class='md-whiteframe-z1 md-raised' md-no-ink='true'><p class='md-headline'>{{ daysUntil }}</p></md-button>
           <h5 class='md-headline'>Days</h5>
         </div>
         <!-- next meeting day -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Next meeting:</h5>
-          <md-button class='md-whiteframe-z2 bg-teal-hue1 md-raised' md-no-ink='true'><p class='md-display-1'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
+          <md-button class='md-whiteframe-z1 md-raised' md-no-ink='true'><p class='md-headline'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
           <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
         </div>
       </div>
@@ -68,14 +68,12 @@
       <!-- start instructor cards-->
       <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
         <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-          <div class='bg-teal-hue1 md-whiteframe-z2'>
-            <md-button class='md-raised' md-no-ink='true'>
-              <img class='md-card-image' ng-src='{{ instructor.pic }}'>
-            </md-button>
-          </div>
+          <md-button aria-label='Instrctor picture' class='md-raised' md-no-ink='true'>
+            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+          </md-button>
           <md-card-content>
             <h2 class='md-headline'>{{ instructor.name }}</h2>
-            <md-button class='md-raised' md-no-ink='true'>{{ instructor.title }}</md-button>
+            <md-button aria-label='Instructor title' class='md-raised' md-no-ink='true'>{{ instructor.title }}</md-button>
             <p class='md-subhead'>{{ instructor.description }}</p>
           </md-card-content>
         </md-card>
@@ -94,16 +92,11 @@
       <!-- start resources content -->
       <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
         <md-card ng-repeat='resource in resources' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-          <div class='bg-teal-hue1 md-whiteframe-z2'>
-            <md-button class='md-raised' ng-href='{{ resource.link }}'>
-              <img class='md-card-image' ng-src='{{ resource.pic }}'>
-            </md-button>
-          </div>
+          <md-button aria-label='Resource picture' class='md-raised' target="_blank" ng-href='{{ resource.link }}'>
+            <img class='md-card-image' ng-src='{{ resource.pic }}'>
+          </md-button>
           <md-card-content>
-            <h2 class='md-headline'><md-button ng-href='{{ resource.link }}' class='md-raised'>{{ resource.name }}</md-button></h2>
-            <div class='bg-teal-hue1 md-whiteframe-z2'>
-              <p class='md-title'>{{ resource.title | uppercase }}</p>
-            </div>
+            <h2 class='md-headline'><md-button aria-label='Resource Name' ng-href='{{ resource.link }}' class='md-raised' target="_blank"><span class='col-red-def'>{{ resource.name }}</span></md-button></h2>
             <p class='md-subhead'>{{ resource.description }}</p>
           </md-card-content>
         </md-card>
@@ -133,7 +126,7 @@
       <div layout='row'>
         <div flex='5'></div>
         <div class='bg-teal-def md-whiteframe-z1' layout-padding>
-          <p class='md-headline' style='text-align: center;'>
+          <p class='md-subhead' style='text-align: center;'>
             We are a non-profit club located in San Diego, California. We are specificaly located in Mesa Verde Middle School. We love programming, and want to share our love with others. We try to convey our passion and help others understand that passion. We teach a variety of languages, in order to help others understand the freedom and power you have while programming. We not only teach students how to simply code, we teach our students problem-solving skills, memorization, creativity, and how to have fun with something seemingly monotonous.
           </p>
         </div>
