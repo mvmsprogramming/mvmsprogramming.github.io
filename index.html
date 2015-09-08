@@ -5,6 +5,8 @@
     <link rel="icon" type="image/png" href="res/images/favicon.png">
     <!-- local stylesheet -->
     <link rel='stylesheet' href='css/main.css'/>
+    <!-- pc editor stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/pcEditor.css">
     <!-- external imports -->
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
     <script src='./bower_components/angular/angular.min.js'></script>
@@ -136,5 +138,22 @@
     </md-content>
     <!-- modules -->
     <script src="js/app.js"></script>
+    <!-- pc editor -->
+    	<div id="pcEditor">
+		<div id="runBar">
+			<div id="runButton"> run code </div>
+			<div id="minimizeButton">{-}</div>
+		</div>
+		<div id="leftEditor">
+			<textarea id="editText" placeholder="html..."></textarea>
+		</div>
+		<div id="rightDisplay">
+			<iframe id="display">
+			</iframe>
+		</div>
+	</div>
+	<div id="minimizedEditor">{+}</div>
+	<script src="js/pcEditor.js"></script>
+	<!-- end of pc editor -->
   </body>
 </html>
