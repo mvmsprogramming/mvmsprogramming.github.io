@@ -1,0 +1,93 @@
+#pcEditor {
+	width:80vw;
+	height:80vh;
+	position:fixed;
+	top:10vh;
+	left:10vw;
+	border:2vw solid #4db6ac;
+	box-sizing:border-box;
+	margin:0px;
+	padding:0px;
+	z-index:1000;
+	box-shadow:0vw .2vw .5vw .2vw #707070;
+	display:none;
+	opacity:0;
+}
+#runBar {
+	width:100%;
+	height:15%;
+}
+
+#runButton {
+	width:85%;
+	height:100%;
+	color:white;
+	background-color:#80cbc4;
+	font-family:Copperplate;
+	text-align:center;
+	font-size:3em;
+	float:left;
+}
+#runButton:hover {
+	opacity:.9;
+}
+#minimizeButton {
+	color:white;
+	font-size:3em;
+	text-align:center;
+	width:15%;
+	height:100%;
+	background-color:#00796b;
+	float:left;
+}
+#minimizeButton:hover {
+	opacity:.9;
+}
+
+#leftEditor {
+	width:50%;
+	height:85%;
+	float:left;
+	background-color:#f5eacd;
+}
+#editText {
+	width:100%;
+	height:100%;
+	resize:none;
+	font-size:1.5em;
+	color:#333333;
+	font-family:Monospace;
+	border:none;
+	border-right:.5vw solid #80cbc4;
+	box-sizing:border-box;
+}
+#rightDisplay {
+	width:50%;
+	height:85%;
+	float:right;
+	background-color:orange;
+}
+#display {
+	width:100%;
+	height:100%;
+	background-color:white;
+	border:none;
+	border-left:.5vw solid #80cbc4;
+	box-sizing:border-box;
+}
+#minimizedEditor {
+	z-index:1;
+	position:fixed;
+	bottom:0vh;
+	left:0vw;
+	width:6vw;
+	height:6vh;
+	background-color:#00796b;
+	color:white;
+	font-size:2em;
+	text-align:center;
+	font-family:Monospace;
+}
+#minimizedEditor:hover {
+	opacity:.9;
+}
