@@ -8,6 +8,7 @@
     <!-- pc editor stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/pcEditor.css">
     <!-- external imports -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css"/>
     <script src='./bower_components/angular/angular.min.js'></script>
     <script src='./bower_components/angular-animate/angular-animate.min.js'></script>
@@ -21,21 +22,21 @@
   <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column' ng-cloak>
     <md-content class='md-padding'>
         <!-- start toolbar -->
-    <md-toolbar class='md-whiteframe-z2' flex='33' layout-margin layout-padding>
-        <div layout='row'>
-            <div flex='5'></div>
-            <div layout="row" layout-align="space-between center">
-                <div layout='column'>
-                    <p class='md-display-3'>MVMS Programming Club</p>
-                    <p class='md-display-1'>Where middle school students learn to program.</p>
+        <md-toolbar class='md-whiteframe-z2' flex='33' layout-margin layout-padding>
+            <div layout='row'>
+                <div flex='5'></div>
+                <div layout="row" layout-align="space-between center">
+                    <div layout='column'>
+                        <p class='md-display-3'>MVMS Programming Club</p>
+                        <p class='md-display-1'>Where middle school students learn to program.</p>
+                    </div>
+                    <div layout="column" class='toolbarInspir'>
+                        <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
+                    </div>
                 </div>
-                <div layout="column" class='toolbarInspir'>
-                    <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
-                </div>
+                <div flex='5'></div>
             </div>
-            <div flex='5'></div>
-        </div>
-    </md-toolbar>
+        </md-toolbar>
         <!-- end toolbar -->
         </div>
         <!-- start schedule title -->
@@ -145,20 +146,38 @@
     <!-- modules -->
     <script src="js/app.js"></script>
     <!-- pc editor -->
-    	<div id="pcEditor">
-		<div id="runBar">
-			<div id="runButton"> run code </div>
-			<div id="minimizeButton">{-}</div>
-		</div>
-		<div id="leftEditor">
-			<textarea id="editText" placeholder="html..."></textarea>
-		</div>
-		<div id="rightDisplay">
-			<iframe id="display">
-			</iframe>
-		</div>
+    <div id="pcEditor">
+		<md-toolbar class='md-whiteframe-z2' flex='15' layout-margin layout-padding id="runBar">
+			<div id='runButton'><md-button class='md-raised' aria-label='run code'> run code </md-button></div>
+			<div id='minimizeButton'><md-button class='md-raised' aria-label='mimize editor'><i class="material-icons">clear</i></md-button></div>
+		</md-toolbar>
+        <div layout='row'>
+    		<div id="leftEditor" layout-margin layout-padding flex='50'>
+    			<textarea id="editText" placeholder="html..."></textarea>
+    		</div>
+    		<div id="rightDisplay" layout-margin layout-padding flex='50'>
+    			<iframe id="display">
+    			</iframe>
+    		</div>
+        </div>
 	</div>
-	<div id="minimizedEditor">{+}</div>
+	<a id="minimizedEditor"><md-button class='md-fab' aria-label='maximize'><i class="material-icons">add</i></md-button></a>
+
+    <!-- <md-toolbar class='md-whiteframe-z2' flex='33' layout-margin layout-padding>
+        <div layout='row'>
+            <div flex='5'></div>
+            <div layout="row" layout-align="space-between center">
+                <div layout='column'>
+                    <p class='md-display-3'>MVMS Programming Club</p>
+                    <p class='md-display-1'>Where middle school students learn to program.</p>
+                </div>
+                <div layout="column" class='toolbarInspir'>
+                    <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
+                </div>
+            </div>
+            <div flex='5'></div>
+        </div>
+    </md-toolbar> -->
 	<script src="js/pcEditor.js"></script>
 	<!-- end of pc editor -->
   </body>
