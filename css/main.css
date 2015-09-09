@@ -22,6 +22,10 @@ a {
   text-decoration: none;
 }
 .inspir-bg {
-  background-image: url(../res/images/PC_IRL.png) !important;
-  background-position: right top;
+  background-image: url(../res/images/inspirationalPC.png) !important;
+  width: 450px;
+  height: 370px;
+}
+.toolbarInspir {
+    text-align: right !important;
 }

@@ -19,17 +19,23 @@
   <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column' ng-cloak>
     <md-content class='md-padding'>
         <!-- start toolbar -->
-        <md-toolbar class='md-whiteframe-z3 inspir-bg' flex='33' flex-sm='33'>
-          <div layout='row'>
+    <md-toolbar class='md-whiteframe-z2' flex='33' layout-margin layout-padding>
+        <div layout='row'>
             <div flex='5'></div>
-            <div>
-              <p class='md-display-3'>MVMS Programming Club</p>
-              <p class='md-headline'>Where middle school students learn to program.</p>
+            <div layout="row" layout-align="space-between center">
+                <div layout='column'>
+                    <p class='md-display-3'>MVMS Programming Club</p>
+                    <p class='md-display-1'>Where middle school students learn to program.</p>
+                </div>
+                <div layout="column" class='toolbarInspir'>
+                    <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
+                </div>
             </div>
             <div flex='5'></div>
-          </div>
-        </md-toolbar>
+        </div>
+    </md-toolbar>
         <!-- end toolbar -->
+        </div>
         <!-- start schedule title -->
         <div layout='row'>
         <div flex='5'></div>
@@ -44,13 +50,13 @@
         <!-- days until next meeting -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Programming club is in </h5>
-          <md-button class='md-whiteframe-z1 md-raised' md-no-ink='true'><p class='md-headline'>{{ daysUntil }}</p></md-button>
+          <md-button class='md-raised'><p class='md-headline'>{{ daysUntil }}</p></md-button>
           <h5 class='md-headline'>Days</h5>
         </div>
         <!-- next meeting day -->
         <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
           <h5 class='md-headline'>Next meeting:</h5>
-          <md-button class='md-whiteframe-z1 md-raised' md-no-ink='true'><p class='md-headline'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
+          <md-button class='md-raised'><p class='md-headline'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
           <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
         </div>
       </div>
@@ -66,14 +72,14 @@
       </div>
       <!-- end instructors title -->
       <!-- start instructor cards-->
-      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
+      <div layout='row' layout-sm='column' layout-align="space-around end" layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
         <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-          <md-button aria-label='Instrctor picture' class='md-raised' md-no-ink='true'>
+          <md-button aria-label='Instrctor picture' class='md-raised'>
             <img class='md-card-image' ng-src='{{ instructor.pic }}'>
           </md-button>
           <md-card-content>
             <h2 class='md-headline'>{{ instructor.name }}</h2>
-            <md-button aria-label='Instructor title' class='md-raised' md-no-ink='true'>{{ instructor.title }}</md-button>
+            <md-button aria-label='Instructor title' class='md-raised'>{{ instructor.title }}</md-button>
             <p class='md-subhead'>{{ instructor.description }}</p>
           </md-card-content>
         </md-card>
@@ -90,7 +96,7 @@
       </div>
       <!-- end resources title -->
       <!-- start resources content -->
-      <div layout='row' layout-sm='column' layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
+      <div layout='row' layout-sm='column' layout-align='space-around end' layout-margin layout-padding style='text-align: center;' layout-wrap>
         <md-card ng-repeat='resource in resources' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
           <md-button aria-label='Resource picture' class='md-raised' target="_blank" ng-href='{{ resource.link }}'>
             <img class='md-card-image' ng-src='{{ resource.pic }}'>

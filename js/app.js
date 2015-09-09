@@ -83,6 +83,18 @@ var app = angular.module('mvmsPcApp', ['ngMaterial'])
         link: 'http://jsfiddle.net/',
         description: "JsFiddle is an online IDE that supports HTML, CSS, Javascript, and many plugins for those languages. We often use JsFiddle in class because of it's simplicity",
         pic: 'res/images/jsfiddleLogo.png'
-      }
+    },
+    {
+        name: 'Codepen',
+        link: 'http://codepen.io/',
+        description: 'Codepen is an online IDE that suppots HTML, CSS, Javascript, and many plugins for those languages. While we usually use JsFiddle in class, to share your code, you should use Codepen as the layout is simpler, at least that is what the general concensus is.',
+        pic: 'res/images/codepen.png'
+    },
+    {
+        name: 'Google',
+        link: 'https://www.google.com/',
+        description: 'Google is a great place to find answers to questions you may have. A fantastic application very few know of, usually if you type your problem into Google.com, you can find your answer. Magic!',
+        pic: 'res/images/google_logo.png'
+    }
     ];
   });
