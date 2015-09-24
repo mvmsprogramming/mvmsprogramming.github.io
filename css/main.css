@@ -22,7 +22,6 @@ a {
   text-decoration: none;
 }
 .inspir-bg {
-  background-image: url(../res/images/inspirationalPC.png) !important;
-  width: 450px;
-  height: 370px;
+  background-image: url(../res/images/inspirational_wide.png) !important;
+  background-position: right top;
 }

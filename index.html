@@ -23,7 +23,7 @@
     <md-content class='md-padding'>
         <!-- start toolbar -->
         <div layout='row'>
-            <md-toolbar class='md-whiteframe-z2' flex='100' layout-margin layout-padding layout-fill>
+            <md-toolbar class='md-whiteframe-z2 inspir-bg' flex='100' layout-margin layout-padding layout-fill>
                 <div layout='row'>
                     <div flex='5'></div>
                     <div layout="row" layout-align="space-between center">
@@ -31,9 +31,9 @@
                             <p class='md-display-3'>MVMS Programming Club</p>
                             <p class='md-display-1'>Where middle school students learn to program.</p>
                         </div>
-                        <div layout="column" class='toolbarInspir'>
+                        <!-- <div layout="column" class='toolbarInspir' flex layout-fill>
                             <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </md-toolbar>
@@ -41,107 +41,124 @@
         <!-- end toolbar -->
         <!-- start schedule title -->
         <div layout='row'>
-        <div flex='5'></div>
-        <div>
-          <h6 class='md-title col-red-def'>Schedule</h6>
-          <p class='md-subhead'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom, room 415, at Mesa Verde Middle School.</p>
+            <div flex='5'></div>
+            <div>
+                <h6 class='md-title col-red-def'>Schedule</h6>
+                <p class='md-subhead'>We meet every Thursday, 3:15 to 4:10, in Mr. Bird's classroom, room 415, at Mesa Verde Middle School.</p>
+            </div>
         </div>
-      </div>
-      <!-- end schedule title -->
-      <!-- start schedule section -->
-      <div layout="row" layout-sm='column' layout-md='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
-        <!-- days until next meeting -->
-        <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
-          <h5 class='md-headline'>Programming club is in </h5>
-          <md-button class='md-raised'><p class='md-headline'>{{ daysUntil }}</p></md-button>
-          <h5 class='md-headline'>Days</h5>
+          <!-- end schedule title -->
+          <!-- start schedule section -->
+        <div layout="row" layout-sm='column' layout-md='column' layout-align="space-around center" layout-margin layout-padding layout-fill>
+            <!-- days until next meeting -->
+            <md-card flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+                <md-card-content>
+                    <h5 class='md-headline'>Programming club is in </h5>
+                    <md-button class='md-raised'><p class='md-headline'>{{ daysUntil }}</p></md-button>
+                    <h5 class='md-headline'>Days</h5>
+                </md-card-content>
+            </md-card>
+            <!-- next meeting day -->
+            <md-card flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
+                <md-card-content>
+                    <h5 class='md-headline'>Next meeting:</h5>
+                    <md-button class='md-raised'><p class='md-headline'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
+                    <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
+                </md-card-content>
+            </md-card>
         </div>
-        <!-- next meeting day -->
-        <div flex='33' flex-sm='100' flex-md='100' style='text-align: center;' class='md-whiteframe-z1 bg-teal-def'>
-          <h5 class='md-headline'>Next meeting:</h5>
-          <md-button class='md-raised'><p class='md-headline'>{{ nextMeeting | date: 'MMMM d, yyyy' }}</p></md-button>
-          <h5 class='md-headline'>{{ nextMeeting | date: 'h:mm a' }}</h5>
+        <!-- end schedule section -->
+        <md-divider></md-divider>
+        <!-- start instructors title -->
+        <div layout='row'>
+            <div flex='5'></div>
+            <div>
+                <h6 class='md-title col-red-def'>Instructors</h6>
+                <p class='md-subhead'>We have a carefully handpicked selection of the best programmers that regularly come to the club.</p>
+            </div>
         </div>
-      </div>
-      <!-- end schedule section -->
-      <md-divider></md-divider>
-      <!-- start instructors title -->
-      <div layout='row'>
-        <div flex='5'></div>
-        <div>
-          <h6 class='md-title col-red-def'>Instructors</h6>
-          <p class='md-subhead'>We have a carefully handpicked selection of the best programmers that regularly come to the club.</p>
+        <!-- end instructors title -->
+        <!-- start instructor cards-->
+        <div layout='row' layout-sm='column' layout-align="space-around end" layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
+            <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
+                <md-button aria-label='Instrctor picture' class='md-raised'>
+                    <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+                </md-button>
+                <md-card-content>
+                    <h2 class='md-headline'>{{ instructor.name }}</h2>
+                    <md-button aria-label='Instructor title' class='md-raised'>{{ instructor.title }}</md-button>
+                    <p class='md-subhead'>{{ instructor.description }}</p>
+                </md-card-content>
+            </md-card>
         </div>
-      </div>
-      <!-- end instructors title -->
-      <!-- start instructor cards-->
-      <div layout='row' layout-sm='column' layout-align="space-around end" layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
-        <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-          <md-button aria-label='Instrctor picture' class='md-raised'>
-            <img class='md-card-image' ng-src='{{ instructor.pic }}'>
-          </md-button>
-          <md-card-content>
-            <h2 class='md-headline'>{{ instructor.name }}</h2>
-            <md-button aria-label='Instructor title' class='md-raised'>{{ instructor.title }}</md-button>
-            <p class='md-subhead'>{{ instructor.description }}</p>
-          </md-card-content>
-        </md-card>
-      </div>
-      <!-- end instructor cards -->
-      <md-divider></md-divider>
-      <!-- start resources title -->
-      <div layout='row'>
-        <div flex='5'></div>
-        <div>
-          <h6 class='md-title col-red-def'>Resources</h6>
-          <p class='md-subhead'>Want to know how to do something or want to use a program we used in class?</p>
+        <!-- end instructor cards -->
+        <md-divider></md-divider>
+        <!-- start resources title -->
+        <div layout='row'>
+            <div flex='5'></div>
+            <div>
+                <h6 class='md-title col-red-def'>Resources</h6>
+                <p class='md-subhead'>Want to know how to do something or want to use a program we used in class?</p>
+            </div>
         </div>
-      </div>
-      <!-- end resources title -->
-      <!-- start resources content -->
-      <div layout='row' layout-sm='column' layout-align='space-around end' layout-margin layout-padding style='text-align: center;' layout-wrap>
-        <md-card ng-repeat='resource in resources' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-          <md-button aria-label='Resource picture' class='md-raised' target="_blank" ng-href='{{ resource.link }}'>
-            <img class='md-card-image' ng-src='{{ resource.pic }}'>
-          </md-button>
-          <md-card-content>
-            <h2 class='md-headline'><md-button aria-label='Resource Name' ng-href='{{ resource.link }}' class='md-raised' target="_blank"><span class='col-red-def'>{{ resource.name }}</span></md-button></h2>
-            <p class='md-subhead'>{{ resource.description }}</p>
-          </md-card-content>
-        </md-card>
-      </div>
-      <!-- end resources content -->
-      <md-divider></md-divider>
-      <!-- start contact title -->
-      <div layout='row'>
-        <div flex='5'></div>
-        <div>
-          <h6 class='md-title col-red-def'>Contact</h6>
-          <p class='md-subhead'>Come on in, let's have a chat.</p>
+        <!-- end resources title -->
+        <!-- start resources content -->
+        <div layout='row' layout-sm='column' layout-align='space-around end' layout-margin layout-padding style='text-align: center;' layout-wrap>
+            <md-card ng-repeat='resource in resources' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
+            <md-button aria-label='Resource picture' class='md-raised' ng-href='{{ resource.link }}'>
+                <img class='md-card-image' ng-src='{{ resource.pic }}'>
+            </md-button>
+                <md-card-content>
+                    <h2 class='md-headline'><md-button aria-label='Resource Name' ng-href='{{ resource.link }}' class='md-raised'><span class='col-red-def'>{{ resource.name }}</span></md-button></h2>
+                    <p class='md-subhead'>{{ resource.description }}</p>
+                </md-card-content>
+            </md-card>
         </div>
-      </div>
-      <!-- end contact title -->
-      <md-divider></md-divider>
-      <!-- start about title -->
-      <div layout='row'>
-        <div flex='5'></div>
-        <div>
-          <h6 class='md-title col-red-def'>About</h6>
-          <p class='md-subhead'>What are we?</p>
+        <!-- end resources content -->
+        <md-divider></md-divider>
+        <!-- start contact title -->
+        <div layout='row'>
+            <div flex='5'></div>
+            <div>
+                <h6 class='md-title col-red-def'>Contact</h6>
+                <p class='md-subhead'>Come on in, the hearth is warm and the banter is cheeky.</p>
+            </div>
         </div>
-      </div>
-      <!-- end about title -->
-      <!-- start about content -->
-      <div layout='row'>
-        <div flex='5'></div>
-        <div class='bg-teal-def md-whiteframe-z1' layout-padding>
-          <p class='md-subhead' style='text-align: center;'>
-            We are a non-profit club located in San Diego, California. We are specificaly located in Mesa Verde Middle School. We love programming, and want to share our love with others. We try to convey our passion and help others understand that passion. We teach a variety of languages, in order to help others understand the freedom and power you have while programming. We not only teach students how to simply code, we teach our students problem-solving skills, memorization, creativity, and how to have fun with something seemingly monotonous.
-          </p>
+        <!-- end contact title -->
+        <!-- start contact content -->
+        <div layout='row' layout-padding layout-margin layout-fill layout-align space-around center>
+            <div flex='80' layout='column'>
+                <md-card>
+
+                </md-card>
+            </div>
+            <div flex='20' layout='column'>
+                <md-button class='md-fab' aria-label='google+' href='https://plus.google.com/u/0/109792540043697314373/posts'><md-icon md-svg-src='http://veithen.github.io/images/icon-gplus.svg'></md-icon></md-button>
+            </div>
         </div>
-        <div flex='5'></div>
-      </div>
-      <!-- end about content -->
+        <!-- end contact content -->
+        <md-divider></md-divider>
+        <!-- start about title -->
+        <div layout='row'>
+            <div flex='5'></div>
+            <div>
+                <h6 class='md-title col-red-def'>About</h6>
+                <p class='md-subhead'>What are we?</p>
+            </div>
+        </div>
+        <!-- end about title -->
+        <!-- start about content -->
+        <div layout='row'>
+            <div flex='5'></div>
+            <div class='bg-teal-def md-whiteframe-z1' layout-padding layout-margin layout='column'>
+                    <p class='md-subhead' style='text-align: center;' flex='80'>
+                        We are a non-profit club located in San Diego, California. We are specificaly located in Mesa Verde Middle School. We love programming, and want to share our love with others. We try to convey our passion and help others understand that passion. We teach a variety of languages, in order to help others understand the freedom and power you have while programming. We not only teach students how to simply code, we teach our students problem-solving skills, memorization, creativity, and how to have fun with something seemingly monotonous.
+                    </p>
+                    <md-button class='md-raised'><a class='col-red-def' href='res/images/horse_head.jpg' download>Download the Application Form</a></md-button>
+            </div>
+            <div flex='5'></div>
+        </div>
+        <!-- end about content -->
     </md-content>
     <!-- modules -->
     <script src="js/app.js"></script>
@@ -162,22 +179,6 @@
         </div>
 	</div>
 	<span id="minimizedEditor"><md-button class='md-fab' aria-label='maximize'><i class="material-icons">add</i></md-button></span>
-
-    <!-- <md-toolbar class='md-whiteframe-z2' flex='33' layout-margin layout-padding>
-        <div layout='row'>
-            <div flex='5'></div>
-            <div layout="row" layout-align="space-between center">
-                <div layout='column'>
-                    <p class='md-display-3'>MVMS Programming Club</p>
-                    <p class='md-display-1'>Where middle school students learn to program.</p>
-                </div>
-                <div layout="column" class='toolbarInspir'>
-                    <md-button class='md-raised inspir-bg md-whiteframe-z2' layout-margin aria-label='inspirational picture'></md-button>
-                </div>
-            </div>
-            <div flex='5'></div>
-        </div>
-    </md-toolbar> -->
 	<script src="js/pcEditor.js"></script>
 	<!-- end of pc editor -->
   </body>
