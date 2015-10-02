@@ -45,7 +45,7 @@ app.controller('pcController', function($scope, $http) {
 
         $scope.daysUntil = Date.daysBetween(currentDate, $scope.nextMeeting);
     })
-    $scope.instructors = [
+    $scope.executives = [
       {
         name: 'Ronak Shah',
         title: 'Head',
@@ -66,13 +66,13 @@ app.controller('pcController', function($scope, $http) {
       },
       {
         name: 'Evan Thurston',
-        title: 'Instructor',
+        title: 'Advanced Instructor',
         description: 'Currently an 8th grader at Mesa Verde Middle School, Evan is a fantastic programmer who mainly works in HTML, CSS, Javascript, Swift, and Unity C#. You can contact Evan at evanthurston@gmail.com',
         pic: 'res/images/horse_head.jpg'
       },
       {
         name: 'Assafi Cohen-Arazi',
-        title: 'Instructor',
+        title: 'Beginner Instructor',
         description: "Currently an 8th grader at Mesa Verde Middle School, Assafi works hard at what he does. Boasting skills in Javascript, Assafi can write powerful programs in minutes. You can contact Assafi somewhere I don't know because he is a scrub",
         pic: 'res/images/horse_head.jpg'
       }
@@ -107,6 +107,7 @@ app.controller('pcController', function($scope, $http) {
 app.directive('instructorCards', function() {
     return {
         restrict: 'EA',
-        templateUrl: 'directives/instructorCard.html'
+        template: '<div layout="row" layout-sm="column" layout-align="space-around end" layout-align="space-around center" layout-margin layout-padding style="text-align: center;" layout-wrap><md-card ng-repeat="executive in executives" class="bg-teal-def md-whiteframe-z1" flex="30" flex-sm="95" flex-md="45"><md-button aria-label="Executive picture" class="md-raised"><img class="md-card-image" ng-src="{{ executive.pic }}"></md-button><md-card-content><h2 class="md-headline">{{ executive.name }}</h2><md-button aria-label="Instructor title" class="md-raised">{{ executive.title }}</md-button><p class="md-subhead">{{ executive.description }}</p></md-card-content></md-card></div>'
+
     }
 });
