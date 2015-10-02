@@ -104,7 +104,7 @@ app.controller('pcController', function($scope, $http) {
         }
     ];
 });
-app.directive('instructorCard', function() {
+app.directive('instructorCards', function() {
     return {
         restrict: 'EA',
         templateUrl: 'directives/instructorCard.html'
