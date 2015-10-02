@@ -1,1 +1,10 @@
-<h1>dank memes</h1>
+<md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
+    <md-button aria-label='Instrctor picture' class='md-raised'>
+        <img class='md-card-image' ng-src='{{ instructor.pic }}'>
+    </md-button>
+    <md-card-content>
+        <h2 class='md-headline'>{{ instructor.name }}</h2>
+        <md-button aria-label='Instructor title' class='md-raised'>{{ instructor.title }}</md-button>
+        <p class='md-subhead'>{{ instructor.description }}</p>
+    </md-card-content>
+</md-card>

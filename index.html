@@ -20,7 +20,6 @@
     <meta charset="UTF-8">
   </head>
   <body ng-app='mvmsPcApp' ng-controller='pcController' layout='column' ng-cloak>
-    <instructor-card></instructor-card>
     <md-content class='md-padding'>
         <!-- start toolbar -->
         <div layout='row'>
@@ -81,16 +80,7 @@
         <!-- end instructors title -->
         <!-- start instructor cards-->
         <div layout='row' layout-sm='column' layout-align="space-around end" layout-align='space-around center' layout-margin layout-padding style='text-align: center;' layout-wrap>
-            <md-card ng-repeat='instructor in instructors' class='bg-teal-def md-whiteframe-z1' flex='30' flex-sm='95' flex-md='45'>
-                <md-button aria-label='Instrctor picture' class='md-raised'>
-                    <img class='md-card-image' ng-src='{{ instructor.pic }}'>
-                </md-button>
-                <md-card-content>
-                    <h2 class='md-headline'>{{ instructor.name }}</h2>
-                    <md-button aria-label='Instructor title' class='md-raised'>{{ instructor.title }}</md-button>
-                    <p class='md-subhead'>{{ instructor.description }}</p>
-                </md-card-content>
-            </md-card>
+            <instructor-card></instructor-card>
         </div>
         <!-- end instructor cards -->
         <md-divider></md-divider>
