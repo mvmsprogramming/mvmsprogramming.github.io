@@ -16,34 +16,16 @@ app.config(function($mdThemingProvider, $mdIconProvider) {
     $mdIconProvider
 })
 app.controller('pcController', function($scope, $http) {
-    var toRFC3339String = function(dateString) {
-        function pad(n) { return n < 10 ? '0' + n : n }
-
-        return dateString.getUTCFullYear() + '-'
-            + pad(dateString.getUTCMonth() + 1) + '-'
-            + pad(dateString.getUTCDate()) + 'T'
-            + pad(dateString.getUTCHours()) + ':'
-            + pad(dateString.getUTCMinutes()) + ':'
-            + pad(dateString.getUTCSeconds()) + 'Z'
-    }
 
     var url = 'https://www.googleapis.com/calendar/v3/calendars/3hjfsttq8ceskr9l5s8omgt2o0%40group.calendar.google.com/events/4n7sslhfu87jo4lm3mfa6d2jlo/instances?maxResults=1&timeMin=' + toRFC3339String(new Date()) + '&fields=items(start)&singleEvents=true&key=AIzaSyCmqAoSy-W7dKQgDtmwLZW6l0kz0KPoJdw';
 
     $http.get(url)
         .success(function(response){
 
-        $scope.nextMeeting = new Date(response.items[0].start.dateTime);
-        var currentDate = new Date();
+            $scope.nextMeeting = new Date(response.items[0].start.dateTime);
+            var currentDate = new Date();
 
-        Date.daysBetween = function(date1, date2) {
-            var one_day=1000*60*60*24;
-            var date1_ms = date1.getTime();
-            var date2_ms = date2.getTime();
-            var difference_ms = date2_ms - date1_ms;
-            return Math.round(difference_ms/one_day);
-        }
-
-        $scope.daysUntil = Date.daysBetween(currentDate, $scope.nextMeeting);
+            $scope.daysUntil = Date.daysBetween(currentDate, $scope.nextMeeting);
     })
     $scope.executives = [
       {
@@ -108,6 +90,5 @@ app.directive('instructorCards', function() {
     return {
         restrict: 'EA',
         template: '<div layout="row" layout-sm="column" layout-align="space-around end" layout-align="space-around center" layout-margin layout-padding style="text-align: center;" layout-wrap><md-card ng-repeat="executive in executives" class="bg-teal-def md-whiteframe-z1" flex="30" flex-sm="95" flex-md="45"><md-button aria-label="Executive picture" class="md-raised"><img class="md-card-image" ng-src="{{ executive.pic }}"></md-button><md-card-content><h2 class="md-headline">{{ executive.name }}</h2><md-button aria-label="Instructor title" class="md-raised">{{ executive.title }}</md-button><p class="md-subhead">{{ executive.description }}</p></md-card-content></md-card></div>'
-
     }
 });
